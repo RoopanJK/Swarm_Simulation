@@ -3,7 +3,7 @@
 
     <arg name="world_name" value="$(find swarm_simulation)/worlds/warehouse.world" />
 
-    <arg name="paused" value="true" />
+    <arg name="paused" value="false" />
     <arg name="use_sim_time" value="true" />
     <arg name="gui" value="true" />
     <arg name="recording" value="false" />
@@ -20,7 +20,7 @@
     </include>
   </group>
 
-  <group ns="greybot">
+  <!-- <group ns="greybot">
     <param name="tf_prefix" value="greybot_tf" />
     <include file="$(find swarm_simulation)/launch/bot.launch">
       <arg name="init_pose" value="-x 1.141758 -y 0.393045 -z 0.131826 -Y 1.570000" />
@@ -45,7 +45,7 @@
       <arg name="robot_name" value="bluebot" />
       <arg name="xacro_name" value="bluebot" />
     </include>
-  </group>
+  </group> -->
 
 </launch>
 

@@ -13,7 +13,7 @@
         
         <inertial>
             <origin rpy="0 0 0" xyz="0 0 0" />
-            <mass value="0.9" />
+            <mass value="0.9" /> <!-- 0.9 -->
             <inertia ixx="0.000070003" ixy="0.0" ixz="0.0" iyy="0.000070003" iyz="0.0" izz="0.000040" />
             <!-- <inertia ixx="0" ixy="-0.0" ixz="-1e-06" iyy="0" iyz="0" izz="0" /> -->
         </inertial>
@@ -59,7 +59,7 @@
     <!-- Left wheel link -->
 
     <xacro:rim_macro
-    name="left"
+    name="right"
     color="0 1 0"
     xyz="0.0585 0 -.0735"
     rpy="1.570796326794896 0.05 -1.57"/>
@@ -67,7 +67,7 @@
     <!-- Right Wheel link  -->
 
     <xacro:rim_macro
-    name="right"
+    name="left"
     color="0 1 0"
     xyz="-0.0590 0 -.0735"
     rpy="1.570796326794896 0.05 1.57"/>
@@ -75,7 +75,7 @@
     <!-- Should install sudo apt-get install ros-noetic-ros-control ros-noetic-ros-controllers -->
     <gazebo>
 		<plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
-		<robotNamespace>redbot</robotNamespace>
+		<robotNamespace>/redbot</robotNamespace>
 		</plugin>
 		
 	</gazebo>
