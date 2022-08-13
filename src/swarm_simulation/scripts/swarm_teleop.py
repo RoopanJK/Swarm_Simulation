@@ -28,8 +28,8 @@ moveBindings = {
     #(Front, left, Rear, Right)
     'w': (0, -1, 0, 1),
     's': (0, 1, 0, -1),
-    'a': (-1, 0, 1, 0),
-    'd': (1, 0, -1, 0),
+    'd': (-1, 0, 1, 0),
+    'a': (1, 0, -1, 0),
     ' ': (0, 0, 0, 0),
 }
 
@@ -38,11 +38,11 @@ speedBindings = {
     'z': (-1, -1),
 }
 
+robots = ["empty", "/redbot", "/greenbot", "/bluebot", "/greybot"]
 
 def getKey():
     tty.setraw(sys.stdin.fileno())
     key = sys.stdin.read(1)
-    print(key)
     termios.tcsetattr(sys.stdin, termios.TCSADRAIN, settings)
     return key
 
@@ -53,14 +53,18 @@ if __name__ == "__main__":
 
     rospy.init_node('swarm_teleop')
 
+    robot_no = int(input("Choose Robot: 1. Redbot 2. Greenbot 3. Bluebot 4. Greybot"))
+
+    robot_name = robots[robot_no]
+    
     pub_front = rospy.Publisher(
-        '/redbot/front/command', Float64, queue_size=1)
+        '{}/front/command'.format(robot_name), Float64, queue_size=1)
     pub_left = rospy.Publisher(
-        '/redbot/left/command', Float64, queue_size=1)
+        '{}/left/command'.format(robot_name), Float64, queue_size=1)
     pub_rear = rospy.Publisher(
-        '/redbot/rear/command', Float64, queue_size=1)
+        '{}/rear/command'.format(robot_name), Float64, queue_size=1)
     pub_right = rospy.Publisher(
-        '/redbot/right/command', Float64, queue_size=1)
+        '{}/right/command'.format(robot_name), Float64, queue_size=1)
 
     x = 0
     y = 0
@@ -102,13 +106,3 @@ if __name__ == "__main__":
         pub_left.publish(left_vel)
         pub_rear.publish(rear_vel)
         pub_right.publish(right_vel)
-
-
-    # 'i': (1, 0, 0),
-    # 'o': (1, -1, 0),
-    # 'j': (1, 1, 1),
-    # 'l': (-1, -1, -1),
-    # 'u': (-1, 0, 1),
-    # ',': (-1, 0, 0),
-    # '.': (1, 0, -1),
-    # 'm': (-1, 1, 0),

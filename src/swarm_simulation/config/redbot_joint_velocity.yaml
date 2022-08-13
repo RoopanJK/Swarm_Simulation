@@ -3,18 +3,18 @@ joint_state_controller:
     publish_rate: 100
 front:
     type: velocity_controllers/JointVelocityController
-    joint: rim_front_joint
-    pid: {p: 0.00, i: 0.0, d: 0.0}
+    joint: redbot_rim_front_joint
+    pid: {p: 0.001, i: 0.001, d: 0.001}
 rear:
     type: velocity_controllers/JointVelocityController
-    joint: rim_rear_joint
-    pid: {p: 0.00, i: 0.0, d: 0.0}
+    joint: redbot_rim_rear_joint
+    pid: {p: 0.001, i: 0.001, d: 0.001}
 left:
     type: velocity_controllers/JointVelocityController
-    joint: rim_left_joint
-    pid: {p: 0.00, i: 0.0, d: 0.0}
+    joint: redbot_rim_left_joint
+    pid: {p: 0.001, i: 0.001, d: 0.001}
 right:
     type: velocity_controllers/JointVelocityController
-    joint: rim_right_joint
-    pid: {p: 0.00, i: 0.0, d: 0.0}
+    joint: redbot_rim_right_joint
+    pid: {p: 0.001, i: 0.001, d: 0.001}
     

@@ -5,7 +5,7 @@
     <pose>0 0 0 0 0 -3.14 </pose>
 
     <link name="warehouse">
-        <pose>0 0 0.02 0 0 0</pose>
+        <pose>0 0 0 0 0 0</pose>
     <collision name="collision">
         <geometry>
           <mesh>

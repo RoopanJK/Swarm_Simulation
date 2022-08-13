@@ -3,13 +3,14 @@
 
 <xacro:macro
 	name="roller_macro"
-	params="parent name xyz rpy">
+	params="parent robot_name name xyz rpy">
 
 		<link name="roller_${name}_rim_${parent}_link">
 			<inertial>
-				<mass value="0.001107675"/>
+				<mass value="0.002007675"/>
 				<!-- 0.00113845 -->
 				<!-- 0.001707675 -->
+				<!-- 0.001107675 -->
 				<inertia
 				ixx="10.53776e-08"
 				ixy="0"
@@ -36,7 +37,7 @@
     		<material>Gazebo/Black</material>
   	</gazebo>
 		<joint name="roller_${name}_rim_${parent}_joint" type="continuous">
-			<parent link="rim_${parent}_link"/>
+			<parent link="${robot_name}_rim_${parent}_link"/>
 			<child link="roller_${name}_rim_${parent}_link"/>
 			<axis xyz="0 0 1"/>
 			<origin xyz="${xyz}" rpy="${rpy}"/>
