@@ -20,32 +20,32 @@
     </include>
   </group>
 
-  <group ns="greybot">
+  <!-- <group ns="greybot">
     <param name="tf_prefix" value="greybot_tf" />
     <include file="$(find swarm_simulation)/launch/bot.launch">
       <arg name="init_pose" value="-x 1.141758 -y 0.393045 -z 0.131826 -Y 1.570000" />
       <arg name="robot_name" value="greybot" />
       <arg name="xacro_name" value="greybot" />
     </include>
-  </group>
+  </group> -->
 
-  <group ns="greenbot">
+  <!-- <group ns="greenbot">
     <param name="tf_prefix" value="greenbot_tf" />
     <include file="$(find swarm_simulation)/launch/bot.launch">
       <arg name="init_pose" value="-x 0.960448 -y 0.980893 -z 0.131826 -Y 1.570000" />
       <arg name="robot_name" value="greenbot" />
       <arg name="xacro_name" value="greenbot" />
     </include>
-  </group>
+  </group> -->
 
-  <group ns="bluebot">
+  <!-- <group ns="bluebot">
     <param name="tf_prefix" value="bluebot_tf" />
     <include file="$(find swarm_simulation)/launch/bot.launch">
       <arg name="init_pose" value="-x 0.971374 -y -0.963554 -z 0.131826 -Y 1.570000" />
       <arg name="robot_name" value="bluebot" />
       <arg name="xacro_name" value="bluebot" />
     </include>
-  </group>
+  </group> -->
 
 </launch>
 
