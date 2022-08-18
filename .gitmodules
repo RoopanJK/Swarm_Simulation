@@ -1,3 +1,6 @@
 [submodule "src/simulation_deps/aruco_detector_ocv"]
 	path = src/simulation_deps/aruco_detector_ocv
 	url = https://github.com/CesMak/aruco_detector_ocv.git
+[submodule "src/simulation_deps/alfons_msgs"]
+	path = src/simulation_deps/alfons_msgs
+	url = https://github.com/CesMak/alfons_msgs.git

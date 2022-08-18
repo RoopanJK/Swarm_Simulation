@@ -17,7 +17,7 @@
         <include>
             <uri>model://lifecam</uri>
         <static>true</static>
-        <pose>0 0 0 0 0 2.355</pose>
+        <pose>1.177069 1.103566 0.009908 0 0 1.57</pose>
     </include>
     </world>
 </sdf>

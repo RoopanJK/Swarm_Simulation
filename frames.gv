@@ -1,0 +1,12 @@
+digraph G {
+"greybot/base_link" -> "greybot/aruco_tag"[label="Broadcaster: /greybot/robot_state_publisher\nAverage rate: 10000.000 Hz\nMost recent transform: 0.000 ( 9.124 sec old)\nBuffer length: 0.000 sec\n"];
+"greybot/dummy" -> "greybot/base_link"[label="Broadcaster: /greybot/robot_state_publisher\nAverage rate: 10000.000 Hz\nMost recent transform: 0.000 ( 9.124 sec old)\nBuffer length: 0.000 sec\n"];
+"greybot/base_link" -> "greybot/greybot_rim_front_link"[label="Broadcaster: /greybot/robot_state_publisher\nAverage rate: 51.064 Hz\nMost recent transform: 9.107 ( 0.017 sec old)\nBuffer length: 0.940 sec\n"];
+"greybot/base_link" -> "greybot/greybot_rim_left_link"[label="Broadcaster: /greybot/robot_state_publisher\nAverage rate: 51.064 Hz\nMost recent transform: 9.107 ( 0.017 sec old)\nBuffer length: 0.940 sec\n"];
+"greybot/base_link" -> "greybot/greybot_rim_rear_link"[label="Broadcaster: /greybot/robot_state_publisher\nAverage rate: 51.064 Hz\nMost recent transform: 9.107 ( 0.017 sec old)\nBuffer length: 0.940 sec\n"];
+"greybot/base_link" -> "greybot/greybot_rim_right_link"[label="Broadcaster: /greybot/robot_state_publisher\nAverage rate: 51.064 Hz\nMost recent transform: 9.107 ( 0.017 sec old)\nBuffer length: 0.940 sec\n"];
+edge [style=invis];
+ subgraph cluster_legend { style=bold; color=black; label ="view_frames Result";
+"Recorded at time: 9.124"[ shape=plaintext ] ;
+ }->"greybot/dummy";
+}

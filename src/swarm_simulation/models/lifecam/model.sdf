@@ -3,7 +3,8 @@
     <model name="distorted_camera">
         <static>true</static>
         <link name='usb_cam'>
-            <pose>0 0.002195 1.976452 -0 1.552942 0</pose>
+            <!-- 0.002195 -->
+            <pose>-0.05 0.002195 1.976452 0 1.552942 0</pose>
             <inertial>
                 <mass>0.1</mass>
                 <inertia>
@@ -34,10 +35,11 @@
             <kinematic>0</kinematic>
             <sensor name='camera1' type='camera'>
                 <camera name="head">
-                    <horizontal_fov>1.3962634</horizontal_fov>
+                    <!-- 1.3962634 -->
+                    <horizontal_fov>1.7</horizontal_fov>
                     <image>
-                        <width>800</width>
-                        <height>800</height>
+                        <width>1920</width>
+                        <height>1080</height>
                         <format>R8G8B8</format>
                     </image>
                     <clip>

@@ -2,7 +2,7 @@
 <sdf version='1.4'>
   <model name="warehouse">
     <static>true</static>
-    <pose>0 0 0 0 0 -3.14 </pose>
+    <pose>1.10 1.10 0 0 0 -3.14 </pose>
 
     <link name="warehouse">
         <pose>0 0 0 0 0 0</pose>
