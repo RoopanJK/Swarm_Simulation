@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <launch>
   <include file="$(find gazebo_ros)/launch/empty_world.launch">
 
@@ -20,32 +21,32 @@
     </include>
   </group>
 
-  <group ns="greybot">
+  <!-- <group ns="greybot">
     <param name="tf_prefix" value="greybot_tf" />
     <include file="$(find swarm_simulation)/launch/bot.launch">
       <arg name="init_pose" value="-x 2.231433 -y 1.489499 -z 0.131826 -Y 1.570000" />
       <arg name="robot_name" value="greybot" />
       <arg name="xacro_name" value="greybot" />
     </include>
-  </group>
+  </group> -->
 
-  <group ns="greenbot">
+  <!-- <group ns="greenbot">
     <param name="tf_prefix" value="greenbot_tf" />
     <include file="$(find swarm_simulation)/launch/bot.launch">
       <arg name="init_pose" value="-x 2.077702 -y 2.077601 -z 0.131826 -Y 1.570000" />
       <arg name="robot_name" value="greenbot" />
       <arg name="xacro_name" value="greenbot" />
     </include>
-  </group>
+  </group> -->
 
-  <group ns="bluebot">
+  <!-- <group ns="bluebot">
     <param name="tf_prefix" value="bluebot_tf" />
     <include file="$(find swarm_simulation)/launch/bot.launch">
       <arg name="init_pose" value="-x 2.087766 -y 0.116019 -z 0.131826 -Y 1.570000" />
       <arg name="robot_name" value="bluebot" />
       <arg name="xacro_name" value="bluebot" />
     </include>
-  </group>
+  </group> -->
 
 </launch>
 
