@@ -8,7 +8,7 @@
     <link name="dummy"> </link>
     <link name="base_link">
     <!-- Altered Inertial values using trial and error process for stablilization of bot-->
-        <xacro:box_inertia m = "2.0" x = "0.14" y = "0.14" z = "0.2" />
+        <xacro:box_inertia m = "1.0" x = "0.14" y = "0.14" z = "0.2" />
         
         <!-- <inertial> -->
         <!--     <origin rpy="0 0 0" xyz="0 0 0" /> -->

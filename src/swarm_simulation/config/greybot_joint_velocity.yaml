@@ -1,20 +1,17 @@
-joint_state_controller:
-    type: joint_state_controller/JointStateController
-    publish_rate: 100
-front:
-    type: velocity_controllers/JointVelocityController
-    joint: greybot_rim_front_joint
-    pid: {p: 0.001, i: 0.0, d: 0.0}
-rear:
-    type: velocity_controllers/JointVelocityController
-    joint: greybot_rim_rear_joint
-    pid: {p: 0.001, i: 0.0, d: 0.0}
-left:
-    type: velocity_controllers/JointVelocityController
-    joint: greybot_rim_left_joint
-    pid: {p: 0.001, i: 0.0, d: 0.0}
-right:
-    type: velocity_controllers/JointVelocityController
-    joint: greybot_rim_right_joint
-    pid: {p: 0.001, i: 0.0, d: 0.0}
-    
+gazebo_ros_control/pid_gains:
+    greybot_rim_front_joint:
+        p: 0.01
+        i: 0.01
+        d: 0.0
+    greybot_rim_rear_joint:
+        p: 0.01
+        i: 0.01
+        d: 0.0
+    greybot_rim_left_joint:
+        p: 0.01
+        i: 0.01
+        d: 0.0
+    greybot_rim_right_joint:
+        p: 0.01
+        i: 0.01
+        d: 0.0

@@ -7,7 +7,7 @@
 
 		<link name="roller_${name}_rim_${parent}_link">
 			<inertial>
-				<mass value="0.001107675"/>
+				<mass value="0.00113845"/>
 				<!-- 0.00113845 -->
 				<!-- 0.001707675 -->
 				<!-- 0.001107675 -->

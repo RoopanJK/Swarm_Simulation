@@ -11,7 +11,7 @@
 		<link name="${robot_name}_rim_${name}_link">
 			<inertial>
 				<origin xyz="0 0 -0.000343"/>
-				<mass value="0.2253637"/> <!-- 0.00835758 -->
+				<mass value="0.00835758"/> <!-- 0.00835758 -->
 				<inertia
 				ixx="8.63684e-07"
 				ixy="0"

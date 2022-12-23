@@ -1,18 +1,18 @@
 gazebo_ros_control/pid_gains:
     redbot_rim_front_joint:
-        p: 0.01
-        i: 0.01
+        p: 0.5
+        i: 0.5
         d: 0.0
     redbot_rim_rear_joint:
-        p: 0.01
-        i: 0.01
+        p: 0.5
+        i: 0.5
         d: 0.0
     redbot_rim_left_joint:
-        p: 0.01
-        i: 0.01
+        p: 0.5
+        i: 0.5
         d: 0.0
     redbot_rim_right_joint:
-        p: 0.01
-        i: 0.01
+        p: 0.5
+        i: 0.5
         d: 0.0
     

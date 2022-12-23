@@ -14,7 +14,7 @@
         <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen" args="$(arg init_pose) -urdf -model $(arg robot_name) -param robot_description" ns="/$(arg robot_name)" />
 
         <!-- Load PID Values for bot's wheel joints -->
-        <rosparam file="$(find swarm_simulation)/config/$(arg robot_name)_joint_velocity.yaml" command="load" ns="/$(arg robot_name)" />
+        <!-- <rosparam file="$(find swarm_simulation)/config/$(arg robot_name)_joint_velocity.yaml" command="load" ns="/$(arg robot_name)" /> -->
         <rosparam file="$(find swarm_simulation)/config/$(arg robot_name)_joint_velocity_controller.yaml" command="load" ns="/$(arg robot_name)" />
 
         <!-- Controllers -->
