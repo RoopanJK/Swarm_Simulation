@@ -1,20 +1,18 @@
-joint_state_controller:
-    type: joint_state_controller/JointStateController
-    publish_rate: 100
-front:
-    type: velocity_controllers/JointVelocityController
-    joint: redbot_rim_front_joint
-    pid: {p: 0.001, i: 0.001, d: 0.001}
-rear:
-    type: velocity_controllers/JointVelocityController
-    joint: redbot_rim_rear_joint
-    pid: {p: 0.001, i: 0.001, d: 0.001}
-left:
-    type: velocity_controllers/JointVelocityController
-    joint: redbot_rim_left_joint
-    pid: {p: 0.001, i: 0.001, d: 0.001}
-right:
-    type: velocity_controllers/JointVelocityController
-    joint: redbot_rim_right_joint
-    pid: {p: 0.001, i: 0.001, d: 0.001}
+gazebo_ros_control/pid_gains:
+    redbot_rim_front_joint:
+        p: 0.01
+        i: 0.01
+        d: 0.0
+    redbot_rim_rear_joint:
+        p: 0.01
+        i: 0.01
+        d: 0.0
+    redbot_rim_left_joint:
+        p: 0.01
+        i: 0.01
+        d: 0.0
+    redbot_rim_right_joint:
+        p: 0.01
+        i: 0.01
+        d: 0.0
     

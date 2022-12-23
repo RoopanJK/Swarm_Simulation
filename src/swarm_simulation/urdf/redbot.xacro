@@ -8,15 +8,13 @@
     <link name="dummy"> </link>
     <link name="base_link">
     <!-- Altered Inertial values using trial and error process for stablilization of bot-->
-
-        <!-- <xacro:box_inertia m = "0.80" x = "0.085" y = "-0.10" z = "0.05" /> -->
+        <xacro:box_inertia m = "2.0" x = "0.14" y = "0.14" z = "0.2" />
         
-        <inertial>
-            <origin rpy="0 0 0" xyz="0 0 0" />
-            <mass value="0.9" /> <!-- 0.9 -->
-            <inertia ixx="0.000070003" ixy="0.0" ixz="0.0" iyy="0.000070003" iyz="0.0" izz="0.000040" />
-            <!-- <inertia ixx="0" ixy="-0.0" ixz="-1e-06" iyy="0" iyz="0" izz="0" /> -->
-        </inertial>
+        <!-- <inertial> -->
+        <!--     <origin rpy="0 0 0" xyz="0 0 0" /> -->
+        <!--     <mass value="0.9" /> <!-\- 0.9 -\-> -->
+        <!--     <inertia ixx="0.000070003" ixy="0.0" ixz="0.0" iyy="0.000070003" iyz="0.0" izz="0.000040" /> -->
+        <!--     <!-\- <inertia ixx="0" ixy="-0.0" ixz="-1e-06" iyy="0" iyz="0" izz="0" /> -\-> -->
 
         <visual>
             <origin rpy="0 0 0" xyz="0 0 0" />
