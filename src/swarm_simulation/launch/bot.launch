@@ -6,6 +6,12 @@
         <!-- Load the URDF into the ROS Parameter Server -->
         <param name="robot_description" command="$(find xacro)/xacro '$(find swarm_simulation)/urdf/$(arg xacro_name).xacro'" />
 
+
+         <!-- Publishes joint positions - Joint state publisher -->
+        <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" output="screen" ns="/$(arg robot_name)">
+                <param name="tf_prefix" value="$(arg robot_name)" />
+        </node>
+        <!-- Uses URDF and Joint positions to compute transforms of robot -->
         <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher" output="screen" ns="/$(arg robot_name)">
                 <param name="tf_prefix" value="$(arg robot_name)" />
         </node>
