@@ -6,13 +6,13 @@
 
     <link name="warehouse">
         <pose>0 0 0 0 0 0</pose>
-    <collision name="collision">
+    <!-- <collision name="collision">
         <geometry>
           <mesh>
               <uri>model://warehouse/meshes/SimWarehouse.dae</uri>
           </mesh>
         </geometry>
-      </collision>
+      </collision> -->
 
     <visual name="visual">
         <geometry>

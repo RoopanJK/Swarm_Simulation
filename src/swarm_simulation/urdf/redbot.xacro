@@ -3,18 +3,13 @@
     xmlns:xacro="http://www.ros.org/wiki/xacro">
 
     <xacro:include filename="$(find swarm_simulation)/urdf/inertia.xacro" />
-    <xacro:include filename="$(find swarm_simulation)/urdf/rim.urdf.xacro" /> 
+    <xacro:include filename="$(find swarm_simulation)/urdf/rim.urdf.xacro" />
 
     <link name="dummy"> </link>
     <link name="base_link">
-    <!-- Altered Inertial values using trial and error process for stablilization of bot-->
-        <xacro:box_inertia m = "1.0" x = "0.14" y = "0.14" z = "0.2" />
-        
-        <!-- <inertial> -->
-        <!--     <origin rpy="0 0 0" xyz="0 0 0" /> -->
-        <!--     <mass value="0.9" /> <!-\- 0.9 -\-> -->
-        <!--     <inertia ixx="0.000070003" ixy="0.0" ixz="0.0" iyy="0.000070003" iyz="0.0" izz="0.000040" /> -->
-        <!--     <!-\- <inertia ixx="0" ixy="-0.0" ixz="-1e-06" iyy="0" iyz="0" izz="0" /> -\-> -->
+
+        <!-- Altered Inertial values using trial and error process for stablilization of bot-->
+        <xacro:box_inertia m="1.0" x="0.14" y="0.14" z="0.2" />
 
         <visual>
             <origin rpy="0 0 0" xyz="0 0 0" />
@@ -22,7 +17,7 @@
                 <mesh filename="package://swarm_simulation/models/R_bot/R_bot.dae" scale="1 1 1" />
             </geometry>
         </visual>
-        
+
         <collision>
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
@@ -31,69 +26,184 @@
         </collision>
     </link>
 
-    <link name = "aruco_tag">
+    <link name="aruco_tag">
         <visual>
-            <origin rpy = "0 0 1.57" xyz = "0 0 0.1" />
+            <origin rpy="0 0 1.57" xyz="0 0 0.1" />
             <geometry>
                 <mesh filename="package://swarm_simulation/models/aruco_tags/ID_1.dae" scale='1 1 1' />
             </geometry>
         </visual>
     </link>
 
+    <!-- <link name="redbot_rim_front_link">
+            <origin xyz="0 0.0585 -.0735" rpy="1.570796326794896 0.05 0" />
+            <xacro:cylinder_inertia m="0.05" r="0.02625" l="0.0245" />
+        <visual>
+            <origin xyz="0 0.0585 -.0735" rpy="1.570796326794896 0.05 0" />
+            <geometry>
+                <cylinder length="0.0245" radius="0.02625" />
+            </geometry>
+            <material name="front_wheel">
+                <color rgba="0 0 1 1" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0.0585 -.0735" rpy="1.570796326794896 0.05 0" />
+            <geometry>
+                <cylinder length="0.0245" radius="0.02625" />
+            </geometry>
+        </collision>
+    </link>
+
+    <link name="redbot_rim_rear_link">
+            <origin xyz="0 -0.0595 -.0735" rpy="1.570796326794896 0.05 3.14" />
+            <xacro:cylinder_inertia m="0.05" r="0.02625" l="0.0245" />
+        <visual>
+            <origin xyz="0 -0.0595 -.0735" rpy="1.570796326794896 0.05 3.14" />
+            <geometry>
+                <cylinder length="0.0245" radius="0.02625" />
+            </geometry>
+            <material name="front_wheel">
+                <color rgba="0 0 1 1" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 -0.0595 -.0735" rpy="1.570796326794896 0.05 3.14" />
+            <geometry>
+                <cylinder length="0.0245" radius="0.02625" />
+            </geometry>
+        </collision>
+    </link>
+
+    <link name="redbot_rim_left_link">
+            <origin xyz="-0.0590 0 -.0735" rpy="1.570796326794896 0.05 1.57" />
+            <xacro:cylinder_inertia m="0.05" r="0.02625" l="0.0245" />
+        <visual>
+            <origin xyz="-0.0590 0 -.0735" rpy="1.570796326794896 0.05 1.57" />
+            <geometry>
+                <cylinder length="0.0245" radius="0.02625" />
+            </geometry>
+            <material name="front_wheel">
+                <color rgba="0 0 1 1" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="-0.0590 0 -.0735" rpy="1.570796326794896 0.05 1.57" />
+            <geometry>
+                <cylinder length="0.0245" radius="0.02625" />
+            </geometry>
+        </collision>
+    </link>
+
+    <link name="redbot_rim_right_link">
+            <origin xyz="0.0585 0 -.0735" rpy="1.570796326794896 0.05 -1.57" />
+            <xacro:cylinder_inertia m="0.05" r="0.02625" l="0.0245" />
+        <visual>
+            <origin xyz="0.0585 0 -.0735" rpy="1.570796326794896 0.05 -1.57" />
+            <geometry>
+                <cylinder length="0.0245" radius="0.02625" />
+            </geometry>
+            <material name="front_wheel">
+                <color rgba="0 0 1 1" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0.0585 0 -.0735" rpy="1.570796326794896 0.05 -1.57" />
+            <geometry>
+                <cylinder length="0.0245" radius="0.02625" />
+            </geometry>
+        </collision>
+    </link> -->
+
     <!-- Dummy link -->
     <joint name="dummy_joint" type="fixed">
-        <parent link="dummy"/>
-        <child link="base_link"/>
-        <origin xyz = "0 0 0"/>
+        <parent link="dummy" />
+        <child link="base_link" />
+        <origin xyz="0 0 0" rpy = "0 0 0"/>
     </joint>
 
     <joint name="aruco_joint" type="fixed">
-        <parent link ="base_link" />
-        <child link = "aruco_tag" />
-        <origin rpy = "0 0 0" xyz = "0 0 0" />
+        <parent link="base_link" />
+        <child link="aruco_tag" />
+        <origin rpy="0 0 -1.57" xyz="0 0 0" />
     </joint>
+
+    <!-- <joint name="redbot_front_right_joint" type="fixed">
+        <parent link="base_link" />
+        <child link="redbot_rim_front_link" />
+        <origin rpy="0 0 0" xyz="0 0 0" />
+    </joint>
+
+    <joint name="redbot_rear_right_joint" type="fixed">
+        <parent link="base_link" />
+        <child link="redbot_rim_rear_link" />
+        <origin rpy="0 0 0" xyz="0 0 0" />
+    </joint>
+
+    <joint name="redbot_left_right_joint" type="fixed">
+        <parent link="base_link" />
+        <child link="redbot_rim_left_link" />
+        <origin rpy="0 0 0" xyz="0 0 0" />
+    </joint>
+
+    <joint name="redbot_right_right_joint" type="fixed">
+        <parent link="base_link" />
+        <child link="redbot_rim_right_link" />
+        <origin rpy="0 0 0" xyz="0 0 0" />
+    </joint> -->
 
     <!-- Front wheel link -->
 
     <xacro:rim_macro
-    name="front"
-    robot_name = "redbot"
-    color="0 1 0"
+        name="front"
+        robot_name="redbot"
+        color="0 1 0"
     xyz="0 0.0585 -.0735"
-    rpy="1.570796326794896 0.05 0"/>
+        rpy="1.570796326794896 0.05 0" />
 
     <!-- Rear wheel link -->
 
     <xacro:rim_macro
-    name="rear"
-    robot_name = "redbot"
-    color="0 1 0"
+        name="rear"
+        robot_name="redbot"
+        color="0 1 0"
     xyz="0 -0.0595 -.0735"
-    rpy="1.570796326794896 0.05 3.14"/>
+        rpy="1.570796326794896 0.05 3.14" />
 
     <!-- Left wheel link -->
-
+    
     <xacro:rim_macro
-    name="right"
-    robot_name = "redbot"
-    color="0 1 0"
-    xyz="0.0585 0 -.0735"
-    rpy="1.570796326794896 0.05 -1.57"/>
+        name="right"
+        robot_name="redbot"
+        color="0 1 0"
+        xyz="0.0585 0 -.0735"
+        rpy="1.570796326794896 0.05 -1.57" />
 
     <!-- Right Wheel link  -->
 
     <xacro:rim_macro
-    name="left"
-    robot_name = "redbot"
-    color="0 1 0"
+        name="left"
+        robot_name="redbot"
+        color="0 1 0"
     xyz="-0.0590 0 -.0735"
-    rpy="1.570796326794896 0.05 1.57"/>
+        rpy="1.570796326794896 0.05 1.57" />
 
     <!-- Should install sudo apt-get install ros-noetic-ros-control ros-noetic-ros-controllers -->
+    <!-- <gazebo>
+        <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+            <robotNamespace>/redbot</robotNamespace>
+        </plugin>
+
+    </gazebo> -->
+
     <gazebo>
-		<plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
-		<robotNamespace>/redbot</robotNamespace>
-		</plugin>
-		
-	</gazebo>
+        <plugin name="object_controller" filename="libgazebo_ros_planar_move.so">
+            <commandTopic>cmd_vel</commandTopic>
+            <odometryTopic>odom</odometryTopic>
+            <odometryFrame>odom</odometryFrame>
+            <odometryRate>20.0</odometryRate>
+            <robotBaseFrame>base_link</robotBaseFrame>
+        </plugin>
+    </gazebo>
+
 </robot>

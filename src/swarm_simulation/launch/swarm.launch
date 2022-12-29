@@ -12,37 +12,41 @@
 
   </include>
 
+  <!-- swarmbot 1 -->
   <group ns="redbot">
     <param name="tf_prefix" value="redbot_tf" />
     <include file="$(find swarm_simulation)/launch/bot.launch">
-      <arg name="init_pose" value="-x 2.238828 -y 0.715577 -z 0.131826 -Y 1.570000" />
+      <arg name="init_pose" value="-x 2.238828 -y 0.715577 -z 0.131826 -Y 3.14" />
       <arg name="robot_name" value="redbot" />
       <arg name="xacro_name" value="redbot" />
     </include>
   </group>
 
+  <!-- swarmbot 4 -->
   <!-- <group ns="greybot">
     <param name="tf_prefix" value="greybot_tf" />
     <include file="$(find swarm_simulation)/launch/bot.launch">
-      <arg name="init_pose" value="-x 2.231433 -y 1.489499 -z 0.131826 -Y 1.570000" />
+      <arg name="init_pose" value="-x 2.231433 -y 1.489499 -z 0.131826 -Y 3.14" />
       <arg name="robot_name" value="greybot" />
       <arg name="xacro_name" value="greybot" />
     </include>
   </group> -->
 
+  <!-- swarmbot 2 -->
   <!-- <group ns="greenbot">
     <param name="tf_prefix" value="greenbot_tf" />
     <include file="$(find swarm_simulation)/launch/bot.launch">
-      <arg name="init_pose" value="-x 2.077702 -y 2.077601 -z 0.131826 -Y 1.570000" />
+      <arg name="init_pose" value="-x 2.077702 -y 2.077601 -z 0.131826 -Y 3.14" />
       <arg name="robot_name" value="greenbot" />
       <arg name="xacro_name" value="greenbot" />
     </include>
   </group> -->
 
+  <!-- swarmbot 3 -->
   <!-- <group ns="bluebot">
     <param name="tf_prefix" value="bluebot_tf" />
     <include file="$(find swarm_simulation)/launch/bot.launch">
-      <arg name="init_pose" value="-x 2.087766 -y 0.116019 -z 0.131826 -Y 1.570000" />
+      <arg name="init_pose" value="-x 2.087766 -y 0.116019 -z 0.131826 -Y 3.14" />
       <arg name="robot_name" value="bluebot" />
       <arg name="xacro_name" value="bluebot" />
     </include>
@@ -50,8 +54,11 @@
 
 
   <include file="$(find aruco_detector_ocv)/launch/detector.launch" />
-  <node pkg="tf2_ros" type="static_transform_publisher" name="usb_camstatictf" args="1.177069 1.103566 0.880 -3.14 3.14 0 world usb_cam"/>
-
+  <!-- static tf for usb_cam from world -->
+  <node pkg="tf2_ros" type="static_transform_publisher" name="usb_camstatictf" args="0 0 1 -3.14 3.14 0 world usb_cam"/>
+  <!-- static tf for reference from cam (used to get positive pose in co-ord sys) -->
+  <node pkg="tf2_ros" type="static_transform_publisher" name="usb_cam2refstatictf" args="-0.5 0.5 0 3.14 3.14 0 usb_cam reference"/>
+ 
 </launch>
 
 

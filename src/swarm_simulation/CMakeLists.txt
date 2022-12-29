@@ -123,6 +123,10 @@ include_directories(
   ${catkin_INCLUDE_DIRS}
 )
 
+add_executable(tf2pose src/tf2pose.cpp)
+target_link_libraries(tf2pose ${catkin_LIBRARIES})
+
+
 ## Declare a C++ library
 # add_library(${PROJECT_NAME}
 #   src/${PROJECT_NAME}/swarm_simulation.cpp

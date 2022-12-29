@@ -26,7 +26,7 @@
 
     <link name="aruco_tag">
         <visual>
-            <origin rpy="0 0 0" xyz="0 0 0.1" />
+            <origin rpy="0 0 1.57" xyz="0 0 0.1" />
             <geometry>
                 <mesh filename="package://swarm_simulation/models/aruco_tags/ID_2.dae" scale='1 1 1' />
             </geometry>
@@ -43,7 +43,7 @@
     <joint name="aruco_joint" type="fixed">
         <parent link="base_link" />
         <child link="aruco_tag" />
-        <origin rpy="0 0 0" xyz="0 0 0" />
+        <origin rpy="0 0 -1.57" xyz="0 0 0" />
     </joint>
 
     <!-- Front wheel link -->
@@ -83,12 +83,22 @@
         rpy="1.570796326794896 0.05 1.57" />
 
     <!-- Should install sudo apt-get install ros-noetic-ros-control ros-noetic-ros-controllers -->
-    <gazebo>
+    <!-- <gazebo>
         <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
             <robotNamespace>/greenbot</robotNamespace>
         </plugin>
 
-    </gazebo>
+    </gazebo> -->
 
+    <gazebo>
+        <plugin name="object_controller" filename="libgazebo_ros_planar_move.so">
+            <commandTopic>cmd_vel</commandTopic>
+            <odometryTopic>odom</odometryTopic>
+            <odometryFrame>odom</odometryFrame>
+            <cmdTimeout>-1</cmdTimeout> 
+            <odometryRate>20.0</odometryRate>
+            <robotBaseFrame>base_link</robotBaseFrame>
+        </plugin>
+    </gazebo>
 
 </robot>

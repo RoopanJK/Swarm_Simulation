@@ -1,0 +1,17 @@
+#goal definition
+int32 index
+---
+#result definition
+bool action
+int32 inductIndex
+int32 destIndex 
+---
+#feedback
+string axis
+int32 point
+int32 goalPoint
+int32 inductPoint
+float64 Xpoint
+float64 Ypoint
+float64 xVel
+float64 yVel

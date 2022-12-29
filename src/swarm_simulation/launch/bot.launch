@@ -6,30 +6,36 @@
         <!-- Load the URDF into the ROS Parameter Server -->
         <param name="robot_description" command="$(find xacro)/xacro '$(find swarm_simulation)/urdf/$(arg xacro_name).xacro'" />
 
-
-         <!-- Publishes joint positions - Joint state publisher -->
-        <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" output="screen" ns="/$(arg robot_name)">
-                <param name="tf_prefix" value="$(arg robot_name)" />
-        </node>
-        <!-- Uses URDF and Joint positions to compute transforms of robot -->
-        <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher" output="screen" ns="/$(arg robot_name)">
-                <param name="tf_prefix" value="$(arg robot_name)" />
-        </node>
-
         <!-- Run a python script to the send a service call to gazebo_ros to spawn a URDF robot -->
         <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen" args="$(arg init_pose) -urdf -model $(arg robot_name) -param robot_description" ns="/$(arg robot_name)" />
 
+</launch>
+
+
+
+<!-- Unwanted Realistic Simulation Thingiies!! -->
+
+         <!-- Publishes joint positions - Joint state publisher -->
+        <!-- <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" output="screen" ns="/$(arg robot_name)">
+                <param name="tf_prefix" value="$(arg robot_name)" />
+        </node> -->
+
+        <!-- Uses URDF and Joint positions to compute transforms of robot -->
+        <!-- <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher" output="screen" ns="/$(arg robot_name)">
+                <param name="tf_prefix" value="$(arg robot_name)" />
+        </node> -->
+
+
         <!-- Load PID Values for bot's wheel joints -->
+        
         <!-- <rosparam file="$(find swarm_simulation)/config/$(arg robot_name)_joint_velocity.yaml" command="load" ns="/$(arg robot_name)" /> -->
-        <rosparam file="$(find swarm_simulation)/config/$(arg robot_name)_joint_velocity_controller.yaml" command="load" ns="/$(arg robot_name)" />
+        <!-- <rosparam file="$(find swarm_simulation)/config/$(arg robot_name)_joint_velocity_controller.yaml" command="load" ns="/$(arg robot_name)" /> -->
 
         <!-- Controllers -->
-        <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" ns="/$(arg robot_name)" args="--namespace=/$(arg robot_name) 
+        <!-- <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" ns="/$(arg robot_name)" args=" namespace=/$(arg robot_name) 
 	joint_state_controller
 	front
 	rear
 	left
 	right
-  " />
-
-</launch>
+  " /> -->
