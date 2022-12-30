@@ -14,6 +14,7 @@ find_package(catkin REQUIRED COMPONENTS
   rviz
   urdf
   gazebo_ros
+  swarmbot_msgs
 )
 
 ## System dependencies are found with CMake's conventions
@@ -106,9 +107,10 @@ find_package(catkin REQUIRED COMPONENTS
 ## CATKIN_DEPENDS: catkin_packages dependent projects also need
 ## DEPENDS: system dependencies of this project that dependent projects also need
 catkin_package(
-#  INCLUDE_DIRS include
-#  LIBRARIES swarm_simulation
-#  CATKIN_DEPENDS roscpp rospy std_msgs
+  INCLUDE_DIRS include
+  LIBRARIES swarm_simulation
+  LIBRARIES swarmbot_msgs
+  CATKIN_DEPENDS roscpp rospy std_msgs
 #  DEPENDS system_lib
 )
 
@@ -119,15 +121,20 @@ catkin_package(
 ## Specify additional locations of header files
 ## Your package locations should be listed before other locations
 include_directories(
-# include
+  include
+  swarm_simulation
+  swarmbot_msgs
   ${catkin_INCLUDE_DIRS}
 )
 
 add_executable(tf2pose src/tf2pose.cpp)
 target_link_libraries(tf2pose ${catkin_LIBRARIES})
+add_executable(moveToGoal src/moveToGoal.cpp)
+target_link_libraries(moveToGoal ${catkin_LIBRARIES})
 
 
-## Declare a C++ library
+
+## Declare a C++ librar y
 # add_library(${PROJECT_NAME}
 #   src/${PROJECT_NAME}/swarm_simulation.cpp
 # )

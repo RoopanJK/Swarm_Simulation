@@ -15,15 +15,18 @@ class Goal
 public:
     Axis axis;
     int point;
+    int checkPoint;
     Goal()
     {
         axis = cx;
         point = 0;
+        checkPoint = 0;
     }
-    Goal(Axis _axis, float _point)
+    Goal(Axis _axis, float _point, int _checkPoint = 0)
     {
         axis = _axis;
         point = _point;
+        checkPoint = _checkPoint;
     }
 };
 

@@ -22,6 +22,8 @@ int main(int argc, char** argv)
     bot_publihser.append(argv[1]);
     bot_publihser.append("/pose");
 
+    // std::string bot_pubisher_ = "swarmbot" + std::to_string(abs(argv[1]));
+
     tf2_ros::Buffer tfBuffer;
     tf2_ros::TransformListener tflistener(tfBuffer);
 
