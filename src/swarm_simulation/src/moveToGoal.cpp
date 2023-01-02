@@ -21,13 +21,13 @@ void pose_callback(const turtlesim::Pose &_pose)
 
 int main(int argc, char **argv)
 {
-    ros::init(argc, argv, "Goal Action Server");
-    ros::NodeHandle nh_;
+    ros::init(argc, argv, "Goal_Action_Server");
+    ros::NodeHandle _nh;
     ros::AsyncSpinner spinner(2);
     spinner.start();
     bot_no = (std::string)argv[1];
     bot_name = "swarmbot" + bot_no;
-    ros::Subscriber pose = nh_.subscribe(bot_name + "/pose", 1000, pose_callback); 
+    ros::Subscriber pose = _nh.subscribe(bot_name + "/pose", 1000, pose_callback); 
     VelocityController controller(&posemsg, bot_name);
     ros::Rate loop_rate(20);
     ros::waitForShutdown();

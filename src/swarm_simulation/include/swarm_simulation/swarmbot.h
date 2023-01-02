@@ -23,7 +23,6 @@ class VelocityController
 {
 private:
    ros::NodeHandle nh_;
-
    Goal goal;
    std::string action_name;
    geometry_msgs::Twist cmd_msg;
@@ -90,7 +89,7 @@ public:
       ros::Rate loop_rate(20);
       std::string goalID;
       int induct;
-      ROS_INFO("Received the Goal %i", goal->index);
+      ROS_INFO("Received the Goal %ld", goal->index);
 
       if (goal->index > 0)
       {

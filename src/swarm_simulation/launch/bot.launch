@@ -3,13 +3,33 @@
         <arg name="init_pose" />
         <arg name="xacro_name" />
 
+        <!-- Gazebo launch nodes and params -->
+
+
         <!-- Load the URDF into the ROS Parameter Server -->
         <param name="robot_description" command="$(find xacro)/xacro '$(find swarm_simulation)/urdf/$(arg xacro_name).xacro'" />
 
         <!-- Run a python script to the send a service call to gazebo_ros to spawn a URDF robot -->
         <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen" args="$(arg init_pose) -urdf -model $(arg robot_name) -param robot_description" ns="/$(arg robot_name)" />
 
+
+        <!-- Swarm management nodes and params -->
+
+        <arg name="bot_no" default="1" />
+        <arg name="package_method" default = "1" />
+        <group ns="swarmbot$(arg bot_no)">
+                <param name="bot_control" type="int" value="0"/>
+                <param name="bot_state" type="int" value="0"/>
+                <param name="package_string" type="string" value="0"/>
+                <param name="package_id" type="string" value="0"/>
+                <param name="package_no" type="int" value="0"/>
+                <!-- <node pkg="swarm_simulation" type="tf2pose" name="tf2_pose_conversion" args="$(arg bot_no)" output="screen" />
+                <node pkg="swarm_simulation" type="client" name="action_client_for_swarm_robots" args="$(arg bot_no)" output="screen" />
+                <node pkg="swarm_simulation" type="moveToGoal" name="action_server_for_swarm_robots" args="$(arg bot_no)" output="screen" /> -->
+        </group>
+
 </launch>
+
 
 
 

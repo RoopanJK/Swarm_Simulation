@@ -131,6 +131,8 @@ add_executable(tf2pose src/tf2pose.cpp)
 target_link_libraries(tf2pose ${catkin_LIBRARIES})
 add_executable(moveToGoal src/moveToGoal.cpp)
 target_link_libraries(moveToGoal ${catkin_LIBRARIES})
+add_executable(client src/client.cpp)
+target_link_libraries(client ${catkin_LIBRARIES})
 
 
 

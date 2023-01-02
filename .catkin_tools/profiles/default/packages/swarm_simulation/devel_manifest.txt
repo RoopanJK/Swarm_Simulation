@@ -3,5 +3,6 @@ swarm_simulation
 /home/jkr/projects/Swarm_Simulation/devel/.private/swarm_simulation/lib/pkgconfig/swarm_simulation.pc /home/jkr/projects/Swarm_Simulation/devel/lib/pkgconfig/swarm_simulation.pc
 /home/jkr/projects/Swarm_Simulation/devel/.private/swarm_simulation/lib/swarm_simulation/moveToGoal /home/jkr/projects/Swarm_Simulation/devel/lib/swarm_simulation/moveToGoal
 /home/jkr/projects/Swarm_Simulation/devel/.private/swarm_simulation/lib/swarm_simulation/tf2pose /home/jkr/projects/Swarm_Simulation/devel/lib/swarm_simulation/tf2pose
+/home/jkr/projects/Swarm_Simulation/devel/.private/swarm_simulation/lib/swarm_simulation/client /home/jkr/projects/Swarm_Simulation/devel/lib/swarm_simulation/client
 /home/jkr/projects/Swarm_Simulation/devel/.private/swarm_simulation/share/swarm_simulation/cmake/swarm_simulationConfig-version.cmake /home/jkr/projects/Swarm_Simulation/devel/share/swarm_simulation/cmake/swarm_simulationConfig-version.cmake
 /home/jkr/projects/Swarm_Simulation/devel/.private/swarm_simulation/share/swarm_simulation/cmake/swarm_simulationConfig.cmake /home/jkr/projects/Swarm_Simulation/devel/share/swarm_simulation/cmake/swarm_simulationConfig.cmake

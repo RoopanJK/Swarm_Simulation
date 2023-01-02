@@ -1,5 +1,5 @@
 #goal definition
-int32 index
+int64 index
 ---
 #result definition
 bool action

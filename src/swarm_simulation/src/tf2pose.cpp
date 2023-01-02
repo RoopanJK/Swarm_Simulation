@@ -54,9 +54,9 @@ int main(int argc, char** argv)
         msg.x = transform.transform.translation.x;
         msg.y = transform.transform.translation.y;
         msg.theta = yaw;
-        std::cout << "x= " << msg.x << std::endl;
-        std::cout << "y = "<< msg.y << std::endl;
-        std::cout << "z = "<< yaw << std::endl;
+        // std::cout << "x= " << msg.x << std::endl;
+        // std::cout << "y = "<< msg.y << std::endl;
+        // std::cout << "z = "<< yaw << std::endl;
         
         swarmbot_pose.publish(msg);
     }

@@ -19,6 +19,7 @@
       <arg name="init_pose" value="-x 2.238828 -y 0.715577 -z 0.131826 -Y 3.14" />
       <arg name="robot_name" value="redbot" />
       <arg name="xacro_name" value="redbot" />
+      <arg name="bot_no" value="1" />
     </include>
   </group>
 
