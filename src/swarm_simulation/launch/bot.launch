@@ -23,9 +23,9 @@
                 <param name="package_string" type="string" value="0"/>
                 <param name="package_id" type="string" value="0"/>
                 <param name="package_no" type="int" value="0"/>
-                <!-- <node pkg="swarm_simulation" type="tf2pose" name="tf2_pose_conversion" args="$(arg bot_no)" output="screen" />
+                <node pkg="swarm_simulation" type="tf2pose" name="tf2_pose_conversion" args="$(arg bot_no)" output="screen" />
                 <node pkg="swarm_simulation" type="client" name="action_client_for_swarm_robots" args="$(arg bot_no)" output="screen" />
-                <node pkg="swarm_simulation" type="moveToGoal" name="action_server_for_swarm_robots" args="$(arg bot_no)" output="screen" /> -->
+                <node pkg="swarm_simulation" type="moveToGoal" name="action_server_for_swarm_robots" args="$(arg bot_no)" output="screen" />
         </group>
 
 </launch>

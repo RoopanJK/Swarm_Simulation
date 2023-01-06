@@ -25,7 +25,7 @@ int main(int argc, char **argv)
     ros::NodeHandle _nh;
     ros::AsyncSpinner spinner(2);
     spinner.start();
-    bot_no = (std::string)argv[1];
+    bot_no = std::string(argv[1]);
     bot_name = "swarmbot" + bot_no;
     ros::Subscriber pose = _nh.subscribe(bot_name + "/pose", 1000, pose_callback); 
     VelocityController controller(&posemsg, bot_name);

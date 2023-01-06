@@ -5,6 +5,7 @@
 #include <swarmbot_msgs/SwarmBotAction.h>
 #include <swarmbot_msgs/SwarmBotGoal.h>
 #include <swarmbot_msgs/SwarmBotResult.h>
+#include <swarmbot_msgs/SwarmBotInterrupt.h>
 #include <ros/rate.h>
 #include <string.h>
 #include <std_msgs/String.h>
@@ -14,9 +15,6 @@
 #include <stdint.h>
 #include "swarm_simulation/goalconst.h"
 
-tf2_ros::Buffer tfBuffer;
-tf2_ros::TransformListener listener(tfBuffer);
-actionlib::SimpleActionClient<swarmbot_msgs::SwarmBotAction> client("swarmbot", true);
 std::string bot_no;
 
 class actionClient
@@ -29,33 +27,32 @@ private:
     swarmbot_msgs::SwarmBotGoal goal;
     std_msgs::Int32 col_res;
     std_msgs::Int32 ser_res;
-
+    tf2_ros::Buffer tfBuffer;
     std::string bot_name;
     turtlesim::Pose pose_msg;
     std::string node_name;
-
-    ros::Publisher pub_servo;
-    ros::Publisher pub_colorreq;
-    ros::Publisher pub_cmdVel;
+    ros::Subscriber pose_action;
     ros::Subscriber sub;
-    ros::Subscriber pose_actionose;
+    actionlib::SimpleActionClient<swarmbot_msgs::SwarmBotAction> client;
+    ros::Publisher pub_servo = nh_.advertise<std_msgs::Int32>("servo", 1000);
+    ros::Publisher pub_colorreq = nh_.advertise<std_msgs::Int32>("color_req", 1000);
+    ros::Publisher pub_cmdVel = nh_.advertise<geometry_msgs::Twist>("cmd_vel", 1000);
     bool callbackCalled = false;
 
 public:
-    actionClient(std::string _bot_no)
+    actionClient(std::string _bot_no) : client("swarmbot", true)
     {
-        bot_name = "swarmbot_" + _bot_no;
-        pub_servo = nh_.advertise<std_msgs::Int32>("servo", 1000);
-        pub_colorreq = nh_.advertise<std_msgs::Int32>("color_req", 1000);
-        pub_cmdVel = nh_.advertise<geometry_msgs::Twist>("cmd_vel", 1000);
-        sub = nh_.subscribe<std_msgs::Int64>("dest", 1, &actionClient::callback);
-        pose_action = nh_.subscribe<turtlesim::Pose>(bot_name + "/pose", 10, &actionClient::pose_callback);
+        bot_name = "swarmbot" + _bot_no;
+        tf2_ros::TransformListener listener(tfBuffer);
+        sub = nh_.subscribe("/dest", 1, &actionClient::callback, this);
+        pose_action = nh_.subscribe(bot_name + "/pose", 1, &actionClient::pose_callback, this);
         client.waitForServer();
         callbackCalled = false;
     }
 
     void callback(std_msgs::Int64 data)
     {
+        std::cout << data.data << std::endl;
         callbackCalled = true;
         ROS_INFO("Sending Goal");
         goal.index = data.data;
