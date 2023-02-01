@@ -12,6 +12,7 @@ swarmbot_msgs
 /home/jkr/projects/Swarm_Simulation/devel/.private/swarmbot_msgs/lib/python3/dist-packages/swarmbot_msgs/msg/_SwarmBotActionResult.py /home/jkr/projects/Swarm_Simulation/devel/lib/python3/dist-packages/swarmbot_msgs/msg/_SwarmBotActionResult.py
 /home/jkr/projects/Swarm_Simulation/devel/.private/swarmbot_msgs/lib/python3/dist-packages/swarmbot_msgs/srv/_SwarmBotInterrupt.py /home/jkr/projects/Swarm_Simulation/devel/lib/python3/dist-packages/swarmbot_msgs/srv/_SwarmBotInterrupt.py
 /home/jkr/projects/Swarm_Simulation/devel/.private/swarmbot_msgs/lib/python3/dist-packages/swarmbot_msgs/srv/__init__.py /home/jkr/projects/Swarm_Simulation/devel/lib/python3/dist-packages/swarmbot_msgs/srv/__init__.py
+/home/jkr/projects/Swarm_Simulation/devel/.private/swarmbot_msgs/lib/python3/dist-packages/swarmbot_msgs/srv/_PackageDetail.py /home/jkr/projects/Swarm_Simulation/devel/lib/python3/dist-packages/swarmbot_msgs/srv/_PackageDetail.py
 /home/jkr/projects/Swarm_Simulation/devel/.private/swarmbot_msgs/share/roseus/ros/swarmbot_msgs/manifest.l /home/jkr/projects/Swarm_Simulation/devel/share/roseus/ros/swarmbot_msgs/manifest.l
 /home/jkr/projects/Swarm_Simulation/devel/.private/swarmbot_msgs/share/roseus/ros/swarmbot_msgs/msg/SwarmBotFeedback.l /home/jkr/projects/Swarm_Simulation/devel/share/roseus/ros/swarmbot_msgs/msg/SwarmBotFeedback.l
 /home/jkr/projects/Swarm_Simulation/devel/.private/swarmbot_msgs/share/roseus/ros/swarmbot_msgs/msg/SwarmBotAction.l /home/jkr/projects/Swarm_Simulation/devel/share/roseus/ros/swarmbot_msgs/msg/SwarmBotAction.l
@@ -21,6 +22,7 @@ swarmbot_msgs
 /home/jkr/projects/Swarm_Simulation/devel/.private/swarmbot_msgs/share/roseus/ros/swarmbot_msgs/msg/SwarmBotActionResult.l /home/jkr/projects/Swarm_Simulation/devel/share/roseus/ros/swarmbot_msgs/msg/SwarmBotActionResult.l
 /home/jkr/projects/Swarm_Simulation/devel/.private/swarmbot_msgs/share/roseus/ros/swarmbot_msgs/msg/SwarmBotResult.l /home/jkr/projects/Swarm_Simulation/devel/share/roseus/ros/swarmbot_msgs/msg/SwarmBotResult.l
 /home/jkr/projects/Swarm_Simulation/devel/.private/swarmbot_msgs/share/roseus/ros/swarmbot_msgs/srv/SwarmBotInterrupt.l /home/jkr/projects/Swarm_Simulation/devel/share/roseus/ros/swarmbot_msgs/srv/SwarmBotInterrupt.l
+/home/jkr/projects/Swarm_Simulation/devel/.private/swarmbot_msgs/share/roseus/ros/swarmbot_msgs/srv/PackageDetail.l /home/jkr/projects/Swarm_Simulation/devel/share/roseus/ros/swarmbot_msgs/srv/PackageDetail.l
 /home/jkr/projects/Swarm_Simulation/devel/.private/swarmbot_msgs/share/common-lisp/ros/swarmbot_msgs/msg/SwarmBotGoal.lisp /home/jkr/projects/Swarm_Simulation/devel/share/common-lisp/ros/swarmbot_msgs/msg/SwarmBotGoal.lisp
 /home/jkr/projects/Swarm_Simulation/devel/.private/swarmbot_msgs/share/common-lisp/ros/swarmbot_msgs/msg/SwarmBotActionGoal.lisp /home/jkr/projects/Swarm_Simulation/devel/share/common-lisp/ros/swarmbot_msgs/msg/SwarmBotActionGoal.lisp
 /home/jkr/projects/Swarm_Simulation/devel/.private/swarmbot_msgs/share/common-lisp/ros/swarmbot_msgs/msg/SwarmBotAction.lisp /home/jkr/projects/Swarm_Simulation/devel/share/common-lisp/ros/swarmbot_msgs/msg/SwarmBotAction.lisp
@@ -38,7 +40,9 @@ swarmbot_msgs
 /home/jkr/projects/Swarm_Simulation/devel/.private/swarmbot_msgs/share/common-lisp/ros/swarmbot_msgs/msg/_package_SwarmBotAction.lisp /home/jkr/projects/Swarm_Simulation/devel/share/common-lisp/ros/swarmbot_msgs/msg/_package_SwarmBotAction.lisp
 /home/jkr/projects/Swarm_Simulation/devel/.private/swarmbot_msgs/share/common-lisp/ros/swarmbot_msgs/msg/_package_SwarmBotFeedback.lisp /home/jkr/projects/Swarm_Simulation/devel/share/common-lisp/ros/swarmbot_msgs/msg/_package_SwarmBotFeedback.lisp
 /home/jkr/projects/Swarm_Simulation/devel/.private/swarmbot_msgs/share/common-lisp/ros/swarmbot_msgs/srv/_package_SwarmBotInterrupt.lisp /home/jkr/projects/Swarm_Simulation/devel/share/common-lisp/ros/swarmbot_msgs/srv/_package_SwarmBotInterrupt.lisp
+/home/jkr/projects/Swarm_Simulation/devel/.private/swarmbot_msgs/share/common-lisp/ros/swarmbot_msgs/srv/_package_PackageDetail.lisp /home/jkr/projects/Swarm_Simulation/devel/share/common-lisp/ros/swarmbot_msgs/srv/_package_PackageDetail.lisp
 /home/jkr/projects/Swarm_Simulation/devel/.private/swarmbot_msgs/share/common-lisp/ros/swarmbot_msgs/srv/swarmbot_msgs-srv.asd /home/jkr/projects/Swarm_Simulation/devel/share/common-lisp/ros/swarmbot_msgs/srv/swarmbot_msgs-srv.asd
+/home/jkr/projects/Swarm_Simulation/devel/.private/swarmbot_msgs/share/common-lisp/ros/swarmbot_msgs/srv/PackageDetail.lisp /home/jkr/projects/Swarm_Simulation/devel/share/common-lisp/ros/swarmbot_msgs/srv/PackageDetail.lisp
 /home/jkr/projects/Swarm_Simulation/devel/.private/swarmbot_msgs/share/common-lisp/ros/swarmbot_msgs/srv/_package.lisp /home/jkr/projects/Swarm_Simulation/devel/share/common-lisp/ros/swarmbot_msgs/srv/_package.lisp
 /home/jkr/projects/Swarm_Simulation/devel/.private/swarmbot_msgs/share/common-lisp/ros/swarmbot_msgs/srv/SwarmBotInterrupt.lisp /home/jkr/projects/Swarm_Simulation/devel/share/common-lisp/ros/swarmbot_msgs/srv/SwarmBotInterrupt.lisp
 /home/jkr/projects/Swarm_Simulation/devel/.private/swarmbot_msgs/share/swarmbot_msgs/msg/SwarmBotAction.msg /home/jkr/projects/Swarm_Simulation/devel/share/swarmbot_msgs/msg/SwarmBotAction.msg
@@ -62,10 +66,14 @@ swarmbot_msgs
 /home/jkr/projects/Swarm_Simulation/devel/.private/swarmbot_msgs/share/gennodejs/ros/swarmbot_msgs/msg/_index.js /home/jkr/projects/Swarm_Simulation/devel/share/gennodejs/ros/swarmbot_msgs/msg/_index.js
 /home/jkr/projects/Swarm_Simulation/devel/.private/swarmbot_msgs/share/gennodejs/ros/swarmbot_msgs/msg/SwarmBotAction.js /home/jkr/projects/Swarm_Simulation/devel/share/gennodejs/ros/swarmbot_msgs/msg/SwarmBotAction.js
 /home/jkr/projects/Swarm_Simulation/devel/.private/swarmbot_msgs/share/gennodejs/ros/swarmbot_msgs/srv/SwarmBotInterrupt.js /home/jkr/projects/Swarm_Simulation/devel/share/gennodejs/ros/swarmbot_msgs/srv/SwarmBotInterrupt.js
+/home/jkr/projects/Swarm_Simulation/devel/.private/swarmbot_msgs/share/gennodejs/ros/swarmbot_msgs/srv/PackageDetail.js /home/jkr/projects/Swarm_Simulation/devel/share/gennodejs/ros/swarmbot_msgs/srv/PackageDetail.js
 /home/jkr/projects/Swarm_Simulation/devel/.private/swarmbot_msgs/share/gennodejs/ros/swarmbot_msgs/srv/_index.js /home/jkr/projects/Swarm_Simulation/devel/share/gennodejs/ros/swarmbot_msgs/srv/_index.js
 /home/jkr/projects/Swarm_Simulation/devel/.private/swarmbot_msgs/include/swarmbot_msgs/SwarmBotGoal.h /home/jkr/projects/Swarm_Simulation/devel/include/swarmbot_msgs/SwarmBotGoal.h
+/home/jkr/projects/Swarm_Simulation/devel/.private/swarmbot_msgs/include/swarmbot_msgs/PackageDetail.h /home/jkr/projects/Swarm_Simulation/devel/include/swarmbot_msgs/PackageDetail.h
+/home/jkr/projects/Swarm_Simulation/devel/.private/swarmbot_msgs/include/swarmbot_msgs/PackageDetailResponse.h /home/jkr/projects/Swarm_Simulation/devel/include/swarmbot_msgs/PackageDetailResponse.h
 /home/jkr/projects/Swarm_Simulation/devel/.private/swarmbot_msgs/include/swarmbot_msgs/SwarmBotActionGoal.h /home/jkr/projects/Swarm_Simulation/devel/include/swarmbot_msgs/SwarmBotActionGoal.h
 /home/jkr/projects/Swarm_Simulation/devel/.private/swarmbot_msgs/include/swarmbot_msgs/SwarmBotActionFeedback.h /home/jkr/projects/Swarm_Simulation/devel/include/swarmbot_msgs/SwarmBotActionFeedback.h
+/home/jkr/projects/Swarm_Simulation/devel/.private/swarmbot_msgs/include/swarmbot_msgs/PackageDetailRequest.h /home/jkr/projects/Swarm_Simulation/devel/include/swarmbot_msgs/PackageDetailRequest.h
 /home/jkr/projects/Swarm_Simulation/devel/.private/swarmbot_msgs/include/swarmbot_msgs/SwarmBotAction.h /home/jkr/projects/Swarm_Simulation/devel/include/swarmbot_msgs/SwarmBotAction.h
 /home/jkr/projects/Swarm_Simulation/devel/.private/swarmbot_msgs/include/swarmbot_msgs/SwarmBotInterruptRequest.h /home/jkr/projects/Swarm_Simulation/devel/include/swarmbot_msgs/SwarmBotInterruptRequest.h
 /home/jkr/projects/Swarm_Simulation/devel/.private/swarmbot_msgs/include/swarmbot_msgs/SwarmBotInterrupt.h /home/jkr/projects/Swarm_Simulation/devel/include/swarmbot_msgs/SwarmBotInterrupt.h

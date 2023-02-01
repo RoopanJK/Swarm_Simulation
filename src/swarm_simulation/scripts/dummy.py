@@ -1,113 +1,44 @@
-#! /usr/bin/python3
-
+#!/usr/bin/python3
 import rospy
-import actionlib
-from flipbot2_msg.msg import BotGoalAction
-from flipbot2_msg.msg import BotGoalResult
-from flipbot2_msg.msg import BotGoalGoal
-from flipbot2_msg.srv import *
-from rospy.timer import sleep
 from std_msgs.msg import Int64
 from std_msgs.msg import String
-from geometry_msgs.msg import Twist
+from flipbot2_msg.srv import *
+import paho.mqtt.client as mqtt
 import sys
-import tf2_ros
-right_one_index = {1, 4, 7}
-left_two_index = {2, 3, 5, 6, 8, 9}
-
-
-class actionclient:
-    def __init__(self, bot_no):
-        self.client = actionlib.SimpleActionClient("bot1", BotGoalAction)
+class color_bridge:
+    def __init__(self,bot_no,method) -> None:
+        self.pub = rospy.Publisher('dest', Int64, queue_size=10)
+        self.pub_string = rospy.Publisher('packageString', String, queue_size=10)
+        self.rate = rospy.Rate(10) # 10hz
         self.bot_no = bot_no
-        self.pub_servo = rospy.Publisher('servo', String, queue_size=10)
-        self.pub_colorReq = rospy.Publisher('colorReq', Int64, queue_size=0)
-        self.pub_cmd = rospy.Publisher('cmd_vel', Twist, queue_size=10)
-        self.result = BotGoalResult()
-        self.cmd_vel = Twist()
-        self.stop = Twist()
-        self.tfBuffer = tf2_ros.Buffer()
-        self.listener = tf2_ros.TransformListener(self.tfBuffer)
+        if(method == 2):  #method 2 - mqtt color res from esp32
+            self.client_ip = "192.168.0.172"
+            self.mqtt_client = mqtt.Client()
+            self.mqtt_client.connect(self.client_ip)
+            self.mqtt_client.subscribe("flipkart/color"+str(bot_no))
+            self.mqtt_client.on_message = self.callback
+            self.mqtt_client.loop_forever()
+        if(method == 1):
+            print("method 1")
+            rospy.wait_for_service('/package_server')
+            rospy.Subscriber("colorReq",Int64,self.callbackRos)
+    def callback(self, c, i, msg):
+        self.pub.publish(int(msg.payload))
+    def callbackRos(self,data):
+        try:
+            print("calling package server")
+            packageRequest= rospy.ServiceProxy('/package_server', PackageDetail)
+            resp1 = packageRequest(int(self.bot_no),data.data)
+            rospy.set_param('package_id',resp1.packageId)
+            rospy.set_param('package_string',resp1.destString)
+            rospy.set_param('package_no',resp1.destination)
+            self.pub.publish(resp1.destination)
+            self.pub_string.publish(resp1.packageId)
+        except rospy.ServiceException as e:
+            print("Service call failed: %s"%e)
+if __name__ == '__main__':
+         rospy.init_node('color_bridge', anonymous=True)
+         print(sys.argv[2])
+         mqtt_bridge = color_bridge(sys.argv[1],1)
+         rospy.spin()
 
-        rospy.Subscriber("dest", Int64, self.callback)
-        self.client.wait_for_server()
-        self.callbackCalled = False
-
-    def callback(self, data: Int64):
-        self.callbackCalled = True
-        rospy.loginfo("Sending Goal")
-        self.goal = BotGoalGoal(index=int(data.data))
-        self.client.send_goal(self.goal)
-        self.client.wait_for_result()
-        self.result = self.client.get_result()
-        rospy.loginfo("got result")
-        sleep(0.5)
-        self.servopush = self.servodir()
-        rospy.loginfo("Actuating servo in %i", self.servopush)
-        self.pub_servo.publish(str(self.servopush))
-        sleep(1.5)
-        self.cmd_vel.linear.x = self.servopush
-        self.pub_cmd.publish(self.cmd_vel)
-        sleep(1.0)
-        self.pub_cmd.publish(self.stop)
-        rospy.set_param('package_id',0)
-        rospy.set_param('package_string',"home")
-        rospy.set_param('package_no',0)
-        self.client.send_goal(BotGoalGoal(index=-1 * int(data.data)))
-        self.client.wait_for_result()
-        self.result = self.client.get_result()
-        self.callbackCalled = False
-        sleep(1.0)
-
-    def clientRoutine(self):
-        while not rospy.is_shutdown():
-            control_bit = rospy.get_param("bot_control")
-            if(control_bit == 1):
-                while not self.callbackCalled:
-                    rospy.loginfo("waiting for color data")
-                    if(self.result.inductIndex != 0):
-                        self.pub_colorReq.publish(self.result.inductIndex)
-                        self.callbackCalled = True
-                        rospy.sleep(3)
-                    else:
-                        print("Initating")
-                        try:
-                            trans = self.tfBuffer.lookup_transform(
-                                'world', 'marker_id'+str(self.bot_no), rospy.Time())
-                        except (self.tf2_ros.LookupException, self.tf2_ros.ConnectivityException, self.tf2_ros.ExtrapolationException):
-                            self.rate.sleep()
-                            continue
-                        # Find Induct and publish
-                        if(abs(trans.transform.translation.y - 1.376) < 0.3):
-                            self.pub_colorReq.publish(1)
-                            self.callbackCalled = True
-                        elif(abs(trans.transform.translation.y - 2.151 ) < 0.3):
-                            self.pub_colorReq.publish(2)
-                            self.callbackCalled = True
-                        else:
-                            print("not in induct")
-                            self.goal = BotGoalGoal(index=0)
-                            self.client.send_goal(self.goal)
-                            self.client.wait_for_result()
-                            self.result = self.client.get_result()
-                            rospy.loginfo("got result")
-                            sleep(0.5)
-
-
-    def servodir(self):
-        if self.result.destIndex in right_one_index:
-            return 1
-        else:
-            return -1
-        if self.result.destIndex in left_two_index:
-            return 1
-        else:
-            return -1
-
-
-if __name__ == "__main__":
-    rospy.init_node('client'+str(sys.argv[1]))
-    rospy.loginfo("Init client node " + sys.argv[1])
-    ac = actionclient(int(sys.argv[1]))
-    ac.clientRoutine()
-    rospy.spin()
